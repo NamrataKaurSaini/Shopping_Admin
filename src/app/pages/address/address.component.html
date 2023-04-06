@@ -1,0 +1,57 @@
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+    <div class="container-fluid"></div>
+  </div>
+  <div class="container-fluid mt--8">
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0 p-4">
+            <h3 class="m-0">Address Links</h3>
+          </div>
+          <form [formGroup]="addressForm" (ngSubmit)="saveAddressLinks(addressForm)">
+            <div class="card-body py-0">
+              <div class="form-group col">
+                <label>Address</label>
+                <input type="text" class="form-control" name="address" id="address" formControlName="address" />
+              </div>
+              <div class="form-group col">
+                <label>Mail</label>
+                <input type="text" class="form-control" name="mail" id="mail" formControlName="mail" />
+              </div>
+              <div class="form-group col">
+                <label>Phone No</label>
+                <input type="text" class="form-control" name="phoneNo" id="phoneNo" formControlName="phoneNo" />
+              </div>
+              <div class="form-group col">
+                <label>Map link</label>
+                <input type="text" class="form-control" name="maplink" id="maplink" formControlName="maplink" />
+              </div>
+              <!-- <div class="form-group col">
+                <label>Mail</label>
+                <input type="text" class="form-control" name="mail" id="mail" formControlName="mail" />
+              </div> -->
+              
+              <!-- <div class="form-group col">
+                <label>Twitter</label>
+                <input type="text" class="form-control" name="twitter" id="twitter" formControlName="twitter" />
+              </div>
+  
+              <div class="form-group col">
+                <label>Youtube</label>
+                <input type="text" class="form-control" name="youtube" id="youtube" formControlName="youtube" />
+              </div> -->
+  
+            </div>
+            <div class="card-footer border-0 d-flex justify-content-end">
+              <button type="button" class="btn btn-dark btn-sm" *ngIf="!changeMode" (click)="changeModeStatus()">
+                Edit
+              </button>
+              <button type="submit" class="btn btn-dark btn-sm" *ngIf="changeMode">
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

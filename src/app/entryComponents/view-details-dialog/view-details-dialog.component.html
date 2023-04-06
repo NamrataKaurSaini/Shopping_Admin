@@ -1,0 +1,24 @@
+<h3 matDialogTitle>{{ data['title'] }} Details</h3>
+<mat-dialog-content>
+
+   <div class="col d-flex flex-column justify-content-start" *ngFor="let key of mainHeaders">
+        <div *ngIf="!secondaryKeyName.includes(key)">
+            <span>{{ headName[key] }}</span>
+            <h4 style="font-size: 14px; font-weight: 600;" *ngIf="headNameKeys.includes(key)">
+                {{ getValue(key) || '-' }}
+            </h4>
+        </div>
+        <div *ngIf="secondaryKeyName.includes(key)">
+            <div *ngFor="let key2 of secondaryHeaders[key]">
+                <span>{{ headName[key2] }}</span>
+                <h4 style="font-size: 14px; font-weight: 600;" *ngIf="headNameKeys.includes(key2)">
+                    {{ data['obj'][key][key2] || '-' }}
+                </h4>
+            </div>
+        </div>
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close class="btn-dark">Close</button>
+</mat-dialog-actions>

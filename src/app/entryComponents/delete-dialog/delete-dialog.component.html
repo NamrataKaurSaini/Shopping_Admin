@@ -1,0 +1,13 @@
+<div class="modal-body">
+    <div class=" d-flex flex-column align-items-center justify-content-center">
+        <img src="./assets/img/warning.svg" alt="Warning" height="138px" width="138px">
+        <h4 class="m-0 font-weight-bold text-wrap">Are you sure, you want to</h4>
+        <h4 class="m-0 font-weight-bold text-wrap">remove this {{ data['message'] | lowercase }}?</h4>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-sm btn-outline-dark" (click)="modal.close(0)">Cancel</button>
+     <button type="button" class="btn btn-sm btn-outline-dark" (click)="modal.close(1)" color="warn">Delete</button>
+    </div>
+</div>

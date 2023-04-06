@@ -1,3 +1,62 @@
-<p>
-  enqueries works!
-</p>
+<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+  <div class="container-fluid"></div>
+</div>
+<div class="container-fluid mt--8">
+  <div class="row">
+    <div class="col">
+      <div class="card shadow" *ngIf="enqueriesList.length == 0">
+        <div
+          class="row w-100 m-0 p-4 d-flex flex-column align-items-center justify-content-center">
+          <img
+            src="./../../assets/img/noData.svg"
+            alt=""
+            height="256px"
+            width="256px"
+          />
+          <h3>No Enqueries Yet</h3>
+        </div>
+      </div>
+      <div class="card shadow" *ngIf="enqueriesList.length != 0">
+        <div class="card-header border-0">
+          <div
+            class="row w-100 m-0 p-1 d-flex justify-content-between align-items-center">
+            <h3>Enqueries ({{ enqueriesList.length }})</h3>
+            <button type="button" class="btn btn-dark btn-sm" (click)="exportData()">Export</button>
+          </div>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Sr. No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact No</th>
+                <th scope="col">Added On</th>
+                <!-- <th scope="col">Status</th> -->
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let query of enqueriesList; index as idx">
+                <td>{{ idx + 1 }}</td>
+                <td>{{ query.name }}</td>
+                <td>{{ query.email }}</td>
+                <td>{{ query.phone }}</td>
+                <td>
+                  {{ query.date.toDate() | date: "dd-MM-yyyy hh:MM:ss aa" }}
+                </td>
+                <!-- <td>{{ query.active ? "Active" : "In-Active" }}</td> -->
+                <td>
+                  <button class="btn btn-danger btn-sm" (click)="deleteItem(query.enqueryId)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
