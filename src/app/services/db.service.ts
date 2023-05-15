@@ -12,6 +12,17 @@ import { Review } from "../classes/review";
 import { Visa } from "../classes/visa";
 import { Enqueries } from "../classes/enqueries";
 import { Contactus } from "../classes/contactus";
+import { menbottomwear } from "../classes/menbottomwear";
+import { mentopwear } from "../classes/mentopwear";
+import { menindianwear } from "../classes/menindianwear";
+import { menfootwear } from "../classes/menfootwear";
+import { menaccessorize } from "../classes/menaccessorize";
+import { womenwesternwear } from "../classes/womenwesternwear";
+import { womenaccessorize } from "../classes/womenaccessorize";
+import { womenfootwear } from "../classes/womenfootwear";
+import { womenindianwear } from "../classes/womenindianwear";
+import { homedecor } from "../classes/homedecor";
+import { category } from "../classes/category";
 
 @Injectable({
   providedIn: "root",
@@ -19,6 +30,39 @@ import { Contactus } from "../classes/contactus";
 export class DbService {
   sliderSubject = new BehaviorSubject<Slider[]>(null);
   sliderRetrieved: boolean = false;
+
+  categorySubject = new BehaviorSubject<category[]>(null);
+  categoryRetrieved: boolean = false;
+
+  menbottomwearSubject = new BehaviorSubject<menbottomwear[]>(null);
+  menbottomwearRetrieved: boolean = false;
+
+  mentopwearSubject = new BehaviorSubject<mentopwear[]>(null);
+  mentopwearRetrieved: boolean = false;
+
+  menindianwearSubject = new BehaviorSubject<menindianwear[]>(null);
+  menindianwearRetrieved: boolean = false;
+  
+  menfootwearSubject = new BehaviorSubject<menfootwear[]>(null);
+  menfootwearRetrieved: boolean = false;
+
+  menaccessorizeSubject = new BehaviorSubject<menaccessorize[]>(null);
+  menaccessorizeRetrieved: boolean = false;
+  
+  womenwesternwearSubject = new BehaviorSubject<womenwesternwear[]>(null);
+  womenwesternwearRetrieved: boolean = false;
+
+  womenindianwearSubject = new BehaviorSubject<womenindianwear[]>(null);
+  womenindianwearRetrieved: boolean = false;
+  
+  womenfootwearSubject = new BehaviorSubject<womenfootwear[]>(null);
+  womenfootwearRetrieved: boolean = false;
+
+  womenaccessorizeSubject = new BehaviorSubject<womenaccessorize[]>(null);
+  womenaccessorizeRetrieved: boolean = false;
+
+  homedecorSubject = new BehaviorSubject<homedecor[]>(null);
+  homedecorRetrieved: boolean = false;
 
   contactSubject = new BehaviorSubject<Contactus[]>(null);
   contactRetrieved: boolean = false;
@@ -49,6 +93,7 @@ export class DbService {
 
   servicesSubject = new BehaviorSubject<any[]>(null);
   servicesRetrieved: boolean = false;
+  
 
   constructor(private dbRef: AngularFirestore, private sanitizer: DomSanitizer) {
     this.getContactDetails();
@@ -80,6 +125,173 @@ export class DbService {
           if (images != null) {
             this.sliderRetrieved = true;
             this.sliderSubject.next(images);
+          }
+        });
+    }
+  }
+  getCategory() {
+    if (!this.categoryRetrieved) {
+      this.dbRef
+        .collection(util.CATEGORY_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: category[]) => {
+          if (images != null) {
+            this.categoryRetrieved = true;
+            this.categorySubject.next(images);
+          }
+        });
+    }
+  }
+
+  getMenbottomwear() {
+    if (!this.menbottomwearRetrieved) {
+      this.dbRef
+        .collection(util.MENBOTTOMWEAR_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: menbottomwear[]) => {
+          if (images != null) {
+            this.menbottomwearRetrieved = true;
+            this.menbottomwearSubject.next(images);
+          }
+        });
+    }
+  }
+  getMentopwear() {
+    if (!this.mentopwearRetrieved) {
+      this.dbRef
+        .collection(util.MENTOPWEAR_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: mentopwear[]) => {
+          if (images != null) {
+            this.mentopwearRetrieved = true;
+            this.mentopwearSubject.next(images);
+          }
+        });
+    }
+  }
+  getMenindianwear() {
+    if (!this.menindianwearRetrieved) {
+      this.dbRef
+        .collection(util.MENINDIANWEAR_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: menindianwear[]) => {
+          if (images != null) {
+            this.menindianwearRetrieved = true;
+            this.menindianwearSubject.next(images);
+          }
+        });
+    }
+  }
+  getMenfootwear() {
+    if (!this.menfootwearRetrieved) {
+      this.dbRef
+        .collection(util.MENFOOTWEAR_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: menfootwear[]) => {
+          if (images != null) {
+            this.menfootwearRetrieved = true;
+            this.menfootwearSubject.next(images);
+          }
+        });
+    }
+  }
+  getMenaccessorize() {
+    if (!this.menaccessorizeRetrieved) {
+      this.dbRef
+        .collection(util.MENACCESSORIZE_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: menaccessorize[]) => {
+          if (images != null) {
+            this.menaccessorizeRetrieved = true;
+            this.menaccessorizeSubject.next(images);
+          }
+        });
+    }
+  }
+
+  getWomenwesternwear() {
+    if (!this.menbottomwearRetrieved) {
+      this.dbRef
+        .collection(util.WOMENWESTERNWEAR_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: womenwesternwear[]) => {
+          if (images != null) {
+            this.womenwesternwearRetrieved = true;
+            this.womenwesternwearSubject.next(images);
+          }
+        });
+    }
+  }
+  getWomenindianwear() {
+    if (!this.womenindianwearRetrieved) {
+      this.dbRef
+        .collection(util.WOMENINDIANWEAR_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: womenindianwear[]) => {
+          if (images != null) {
+            this.womenindianwearRetrieved = true;
+            this.womenindianwearSubject.next(images);
+          }
+        });
+    }
+  }
+  getWomenfootwear() {
+    if (!this.womenfootwearRetrieved) {
+      this.dbRef
+        .collection(util.WOMENFOOTWEAR_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: womenfootwear[]) => {
+          if (images != null) {
+            this.womenfootwearRetrieved = true;
+            this.womenfootwearSubject.next(images);
+          }
+        });
+    }
+  }
+  getWomenaccessorize() {
+    if (!this.womenaccessorizeRetrieved) {
+      this.dbRef
+        .collection(util.WOMENACCESSORIZE_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: womenaccessorize[]) => {
+          if (images != null) {
+            this.womenaccessorizeRetrieved = true;
+            this.womenaccessorizeSubject.next(images);
+          }
+        });
+    }
+  }
+  getHomedecor() {
+    if (!this.homedecorRetrieved) {
+      this.dbRef
+        .collection(util.HOMEDECOR_COLLECTION, (ref) =>
+          ref.orderBy("addedOn", "desc")
+        )
+        .valueChanges()
+        .subscribe((images: homedecor[]) => {
+          if (images != null) {
+            this.homedecorRetrieved = true;
+            this.homedecorSubject.next(images);
           }
         });
     }

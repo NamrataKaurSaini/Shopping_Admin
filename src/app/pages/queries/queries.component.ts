@@ -79,7 +79,8 @@ export class QueriesComponent implements OnInit {
       'Request Id': code.queryId,
       'User Name': code.name || "",
       'User Email': code.email || "",
-      'User Mobile': code.phone || "",
+      // 'User Mobile': code.phone || "",
+      'User Query': code.query || "",
       'Request Date': code.date.toDate().toLocaleString()
     })));
     const workbook: XLSX.WorkBook = { Sheets: { 'queries': worksheet }, SheetNames: ['queries'] };

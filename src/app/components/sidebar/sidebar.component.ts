@@ -12,35 +12,42 @@ declare interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
   { 
-    path: "", title: "Multimedia", icon: "", class: "",
+    path: "", title: "Men", icon: "", class: "",
     children: [
-      { path: "/sliders", title: "Slider", icon: "web_stories", class: "", children: [] },
-      { path: "/images", title: "Images", icon: "photo_library", class: "", children: [] },
-      { path: "/videos", title: "Videos", icon: "video_library", class:"", children: [] }
-    ],
-  },
-  { 
-    path: "", title: "Communication", icon: "", class: "",
-    children: [
-      { path: "/queries", title: "Queries", icon: "query_builder", class: "", children: [] },
-      { path: "/enqueries", title: "Enqueries", icon: "book_online", class: "", children: [] }
+      { path: "/men-topwear",title: "Men-Topwear", icon: "store", class: "", children: [] },
+      { path: "/men-bottomwear", title: "Men-Bottomwear", icon: "shopping_bag", class: "", children: [] },
+      { path: "/men-indianwear", title: "Men-Indianwear", icon: "credit_card", class:"", children: [] },
+      { path: "/men-footwear", title: "Men-Footwear", icon: "local_mall", class:"", children: [] },
+      { path: "/men-accessorize", title: "Men-Accessorize", icon: "store", class:"", children: [] }
 
     ],
   },
   { 
-    path: "", title: "Courses", icon: "", class: "",
+    path: "", title: "Women", icon: "", class: "",
     children: [
-      // { path: "/courses", title: "Courses", icon: "book_online", class: "", children: [] },
-      { path: "/services", title: "Services", icon: "support", class: "", children: [] },
-      { path: "/visa", title: "Visa", icon: "description", class: "", children: [] }
+      { path: "/women-westernwear", title: "Women-Westernwear", icon: "credit_card", class: "", children: [] },
+      { path: "/women-indianwear", title: "Women-Indianwear", icon: "store", class: "", children: [] },
+      { path: "/women-footwear", title: "Women-Footwear", icon: "local_mall", class: "", children: [] },
+      { path: "/women-accessorize", title: "Women-Accessorize", icon: "shopping_bag", class: "", children: [] }
+
+
+    ],
+  },
+  { 
+    path: "", title: "Home & Living", icon: "", class: "",
+    children: [
+      // { path: "/visa", title: "Visas", icon: "book_online", class: "", children: [] },
+      { path: "/homedecor", title: "Homedecor", icon: "other_houses", class: "", children: [] },
+      
     ],
   },
   {
     path: "", title: "About", icon: "", class: "", 
     children: [
-      { path: "/reviews", title: "Reviews", icon: "group", class: "", children: [] },
+      { path: "/category", title: "Category List", icon: "category", class: "", children: [] },
+      { path: "/queries", title: "Queries", icon: "description", class: "", children: [] },
+      // { path: "/reviews", title: "Reviews", icon: "group", class: "", children: [] },
       { path: "/social-media", title: "Social Media Links", icon: "connect_without_contact", class: "", children: [] },
-      { path: "/address", title: "Contact Us", icon: "contacts", class: "", children: [] }
     ],
   },
 ];

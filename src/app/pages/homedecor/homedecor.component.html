@@ -1,0 +1,129 @@
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+    <div class="container-fluid"> </div>
+  </div>
+  <div class="container-fluid mt--8">
+    <div class="row">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-header border-0">
+            <div class="row w-100 m-0 p-1 d-flex justify-content-between align-items-center">
+              <h3>Homedecor ({{ homedecorList.length }})</h3>
+              <button type="button" class="btn btn-dark btn-sm" (click)="openHomedecorDialog(homedecorModalRef)">Add Product</button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-flush">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Sr. No</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Description</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Added On</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let homedecor of homedecorList; index as idx"
+                  class="{{ !homedecor.homedecorStatus ? 'bg-light' : '' }}">
+                  <td>{{ idx + 1 }}.</td>
+                  <td>
+                    <span class="paraLimit">
+                      {{ homedecor.title || 'No Title Provided' }}
+                    </span>
+                  </td>
+                  <td>
+                    <span class="paraLimit">
+                      {{ homedecor.description || 'No Description Provided' }}
+                    </span>
+                  </td>
+                  <td>
+                    <span class="paraLimit">
+                      {{ homedecor.price || 'No Description Provided' }}
+                    </span>
+                  </td>
+                  <td>{{ homedecor.addedOn.toDate() | date: 'dd-MM-yyyy hh:MM:ss aa' }}</td>
+                  <td>{{ homedecor.homedecorStatus ? "Active" : "In-Active" }}</td>
+                  <td>
+                    <button type="button" class="btn btn-dark btn-sm" [disabled]="homedecor.imageUrl == ''"
+                      (click)="openLink(homedecor.imageUrl)">
+                      View Image
+                    </button>
+                    <!-- <button type="button" class="btn btn-dark btn-sm" (click)="viewDetails(image)">
+                      View Details
+                    </button> -->
+                    <button type="button" class="btn btn-dark btn-sm" (click)="openHomedecorDialog(homedecorModalRef, homedecor)">
+                      Update
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteItem(homedecor.homedecorId, homedecor.imageUrl)">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #homedecorModalRef let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title d-flex flex-column">
+        <span>Product Details</span>
+      </h4>
+      <button type="button" class="close" aria-label="Close" id="closeAddNewStaffModal" #closeAddNewStaffModal
+        (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form [formGroup]="homedecorForm" (ngSubmit)="uploadImage(homedecorForm)">
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" name="title" formControlName="title">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea type="text" class="form-control" name="description" rows="1" formControlName="description"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Price</label>
+          <input type="text" class="form-control" name="price" formControlName="price">
+        </div>
+        <div class="form-group">
+          <label for="imageFile">Select Image File</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" id="imageFile" (change)="checkFileType($event.target.files)">
+            <label class="custom-file-label" for="imageFile">
+              <span *ngIf="tempFile == null">Choose file</span>
+              <span *ngIf="tempFile != null">{{ tempFile.name }}</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-between">
+          <label for="homedecorStatus">Status</label>
+          <div class="btn-group btn-group-toggle" ngbRadioGroup formControlName="homedecorStatus">
+            <label ngbButtonLabel class="btn-primary btn-sm">
+              <input ngbButton type="radio" [value]="true">Enable
+            </label>
+            <label ngbButtonLabel class="btn-primary btn-sm">
+              <input ngbButton type="radio" [value]="false">Disable
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer" align="end">
+        <button type="reset" class="btn btn-dark btn-sm"  (click)="modal.dismiss('Cross click')"> Cancel</button>
+        <button type="submit" [disabled]="loader" class="btn btn-dark btn-sm">
+          Submit
+          <span *ngIf="loader">&nbsp;</span>
+          <div *ngIf="loader" class="spinner-border spinner-border-sm text-white" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </button>
+      </div>
+    </form>
+  </ng-template>

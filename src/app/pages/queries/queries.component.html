@@ -1,4 +1,4 @@
-<div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+<div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
   <div class="container-fluid"></div>
 </div>
 <div class="container-fluid mt--8">
@@ -35,7 +35,8 @@
                 <th scope="col">Sr. No</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">Contact No</th>
+                <!-- <th scope="col">Contact No</th> -->
+                <th scope="col">Query</th>
                 <th scope="col">Added On</th>
                 <!-- <th scope="col">Status</th> -->
                 <th scope="col">Actions</th>
@@ -46,7 +47,8 @@
                 <td>{{ idx + 1 }}</td>
                 <td>{{ query.name }}</td>
                 <td>{{ query.email }}</td>
-                <td>{{ query.phone }}</td>
+                <!-- <td>{{ query.phone }}</td> -->
+                <td>{{ query.query }}</td>
                 <td>
                   {{ query.date.toDate() | date: "dd-MM-yyyy hh:MM:ss aa" }}
                 </td>

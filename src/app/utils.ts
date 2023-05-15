@@ -11,3 +11,17 @@ export const REVIEW_COLLECTION = "Reviews";
 export const SERVICE_COLLECTION = "Services";
 export const VISA_COLLECTION = "Visas";
 export const ADDRESS_COLLECTION = "Address";
+
+export const MENBOTTOMWEAR_COLLECTION = "Menbottomwear";
+export const MENTOPWEAR_COLLECTION = "Mentopwear";
+export const MENFOOTWEAR_COLLECTION = "Menfootwear";
+export const MENINDIANWEAR_COLLECTION = "Menindianwear";
+export const MENACCESSORIZE_COLLECTION = "Menaccessorize";
+
+export const WOMENWESTERNWEAR_COLLECTION = "Womentopwear";
+export const WOMENFOOTWEAR_COLLECTION = "Womenfootwear";
+export const WOMENINDIANWEAR_COLLECTION = "Womenindianwear";
+export const WOMENACCESSORIZE_COLLECTION = "Womenaccessorize";
+
+export const HOMEDECOR_COLLECTION = "Homededcor";
+export const CATEGORY_COLLECTION = "Category";

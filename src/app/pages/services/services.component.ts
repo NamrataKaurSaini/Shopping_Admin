@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, TemplateRef } from "@angular/core";
+import { Component, OnDestroy, OnInit, TemplateRef} from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { Service } from "src/app/classes/service";
 import { DbService } from "src/app/services/db.service";

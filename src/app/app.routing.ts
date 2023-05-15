@@ -10,7 +10,7 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes =[
   {
     path: '',
-    redirectTo: 'images',
+    redirectTo: 'men-topwear',
     canActivate: [AuthGuard],
     pathMatch: 'full',
   }, {
@@ -33,7 +33,7 @@ const routes: Routes =[
     ]
   }, {
     path: '**',
-    redirectTo: 'images'
+    redirectTo: 'men-topwear'
   }
 ];
 

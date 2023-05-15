@@ -107,6 +107,7 @@ export class SlidersComponent implements OnInit, OnDestroy {
       this.sliderForm = this.fb.group({
         title: ["", Validators.required],
         description: ["", Validators.required],
+        price:["",Validators.required],
         imageUrl: [""],
         imageId: [this.dbRef.createId()],
         sliderStatus: [true],
@@ -118,6 +119,7 @@ export class SlidersComponent implements OnInit, OnDestroy {
       this.sliderForm = this.fb.group({
         title: [sliderModel.title, Validators.required],
         description: [sliderModel.description, Validators.required],
+        // price:[]
         imageUrl: [sliderModel.imageUrl],
         imageId: [sliderModel.imageId],
         sliderStatus: [sliderModel.sliderStatus],
@@ -150,7 +152,7 @@ export class SlidersComponent implements OnInit, OnDestroy {
       .then(() => {
         this.loader = false;
         this.modalService.dismissAll();
-        this.snackbar.open("Image Added/Updated Successfully", "", {
+        this.snackbar.open("Product Added/Updated Successfully", "", {
           duration: 2500,
           panelClass: ["alert", "alert-danger"],
         });
@@ -173,7 +175,7 @@ export class SlidersComponent implements OnInit, OnDestroy {
     
     const modalRef = this.modalService.open(DeleteDialogComponent);
     modalRef.componentInstance.data = {
-      message: 'Slider image'
+      message: 'Product'
     };
 
     modalRef.result.then(async (value) => {
@@ -183,7 +185,7 @@ export class SlidersComponent implements OnInit, OnDestroy {
           .delete()
           .then(
             () => {
-              this.snackbar.open("Slider image Deleted Successfully", "", {
+              this.snackbar.open("Product Deleted Successfully", "", {
                 duration: 2500,
                 panelClass: ["alert", "alert-danger"],
               });
